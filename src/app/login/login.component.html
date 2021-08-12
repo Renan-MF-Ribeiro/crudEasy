@@ -1,0 +1,307 @@
+<div class="button">
+    <mat-button-toggle-group [formControl]="languageControl">
+        <mat-button-toggle value="PTB">PTB</mat-button-toggle>
+        <mat-button-toggle value="ENG">ENG</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <div class="row">
+            <div class="col-12" id="form">
+                <div *ngIf="languageControl.value == 'PTB'">
+                    <h1>Banco de Talentos
+                    </h1>
+                    <mat-stepper linear="isLinear" #stepper>
+                        <mat-step>
+                            <ng-template matStepLabel></ng-template>
+                            <p>Já agradecemos o seu contato, veja que você não precisa preencher o formulário completo caso já tenha essas informações no seu linkedin.</p>
+
+                            <button mat-button matStepperNext style="margin: 1vw;">Começar</button>
+                        </mat-step>
+                        <mat-step [stepControl]="contatoGroup" label="Email de contato">
+                            <form [formGroup]="contatoGroup">
+                                <div class="row">
+                                    <mat-form-field appearance="fill" class="full-width">
+                                        <mat-label>Nome Completo</mat-label>
+                                        <input matInput type="text" formControlName="nome" placeholder="João da Silva" required>
+                                        <mat-icon matSuffix>person</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill" class="full-width">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput type="email" formControlName="email" placeholder="exemplo@ex.com.br" required>
+                                            <mat-icon matSuffix>email</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill" class="full-width">
+                                            <mat-label>Telefone (Whatsapp)</mat-label>
+                                            <input type="tel" matInput placeholder="(11) 9.9999-9999" formControlName="telefone" required>
+                                            <mat-icon matSuffix>mode_edit</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill" class="full-width">
+                                            <mat-label>Linkedin</mat-label>
+                                            <input matInput type="url" formControlName="linkedin" placeholder="linkedin.com/" required>
+                                            <mat-icon matSuffix><img src="assets/linkedin.png" alt=""></mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill" class="full-width">
+                                            <mat-label>Portifolio</mat-label>
+                                            <input matInput type="url" formControlName="portifolio" placeholder="github.com/" required>
+                                            <mat-icon matSuffix>public</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button mat-button matStepperPrevious>Voltar</button>
+                                    <button mat-button matStepperNext>Proximo</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="dadosPessoaisGroup" label="Dados Pessoais">
+                            <form [formGroup]="dadosPessoaisGroup">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Cidade</mat-label>
+                                            <input matInput type="text" formControlName="cidade" placeholder="São Paulo" required>
+                                            <mat-icon matSuffix>room</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-6">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Estado</mat-label>
+                                            <mat-select formControlName="estado" required>
+                                                <mat-option value="AC">Acre</mat-option>
+                                                <mat-option value="AL">Alagoas</mat-option>
+                                                <mat-option value="AP">Amapá</mat-option>
+                                                <mat-option value="AM">Amazonas</mat-option>
+                                                <mat-option value="BA">Bahia</mat-option>
+                                                <mat-option value="CE">Ceará</mat-option>
+                                                <mat-option value="DF">Distrito Federal</mat-option>
+                                                <mat-option value="ES">Espírito Santo</mat-option>
+                                                <mat-option value="GO">Goiás</mat-option>
+                                                <mat-option value="MA">Maranhão</mat-option>
+                                                <mat-option value="MT">Mato Grosso</mat-option>
+                                                <mat-option value="MS">Mato Grosso do Sul</mat-option>
+                                                <mat-option value="MG">Minas Gerais</mat-option>
+                                                <mat-option value="PA">Pará</mat-option>
+                                                <mat-option value="PB">Paraíba</mat-option>
+                                                <mat-option value="PR">Paraná</mat-option>
+                                                <mat-option value="PE">Pernambuco</mat-option>
+                                                <mat-option value="PI">Piauí</mat-option>
+                                                <mat-option value="RJ">Rio de Janeiro</mat-option>
+                                                <mat-option value="RN">Rio Grande do Norte</mat-option>
+                                                <mat-option value="RS">Rio Grande do Sul</mat-option>
+                                                <mat-option value="RO">Rondônia</mat-option>
+                                                <mat-option value="RR">Roraima</mat-option>
+                                                <mat-option value="SC">Santa Catarina</mat-option>
+                                                <mat-option value="SP">São Paulo</mat-option>
+                                                <mat-option value="SE">Sergipe</mat-option>
+                                                <mat-option value="TO">Tocantins</mat-option>
+                                                <mat-option value="EX">Estrangeiro</mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix>room</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <button mat-button matStepperPrevious>Voltar</button>
+                                    <button mat-button matStepperNext>Proximo</button>
+                                </div>
+                            </form>
+                        </mat-step>
+
+                        <mat-step [stepControl]="disponibilidadeGroup" *ngIf="atuacaoGroup.value.atuacao != 'adm'">
+                            <ng-template matStepLabel>Disponibilidade</ng-template>
+                            <form [formGroup]="disponibilidadeGroup">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <mat-label>Qual é sua disponibilidade para trabalhar hoje?</mat-label>
+                                        <mat-form-field appearance="fill" class="example-full-width">
+                                            <mat-label>Disponibilidade</mat-label>
+                                            <mat-select formControlName="disponibilidade">
+                                                <mat-option value="Até 4 horas por dia">Até 4 horas por dia</mat-option>
+                                                <mat-option value="De 4 á 6 horas por dia">De 4 á 6 horas por dia</mat-option>
+                                                <mat-option value="De 6 á 8 horas por dia">De 6 á 8 horas por dia</mat-option>
+                                                <mat-option value="Acima de 8 horas por dia (tem certeza?)">Acima de 8 horas por dia (tem certeza?)</mat-option>
+                                                <mat-option value="Apenas finais de semana">Apenas finais de semana</mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix>event_available</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-6">
+                                        <mat-label>Qual é o melhor horário para voceê trabalhar?</mat-label>
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label>Horario</mat-label>
+                                            <mat-select formControlName="horario" required>
+                                                <mat-option value="Manhã (de 08:00 ás 12:00)">Manhã (de 08:00 ás 12:00)</mat-option>
+                                                <mat-option value="Tarde (de 13:00 ás 18:00)">Tarde (de 13:00 ás 18:00)</mat-option>
+                                                <mat-option value="Noite (de 19:00 as 22:00)">Noite (de 19:00 as 22:00)</mat-option>
+                                                <mat-option value="Madrugada (de 22:00 em diante)">Madrugada (de 22:00 em diante)</mat-option>
+                                                <mat-option value="Comercial (de 08:00 as 18:00)"> Comercial (de 08:00 as 18:00)</mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix>schedule</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <mat-label>Qual sua pretensão salarial por hora? </mat-label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Valor/hora</mat-label>
+                                        <input matInput type="number" formControlName="salarioHr" placeholder="João da Silva" required>
+                                        <mat-icon matSuffix>attach_money</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <button mat-button matStepperPrevious>Voltar</button>
+                                    <button mat-button matStepperNext>Proximo</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="disponibilidadeAdmGroup" *ngIf="atuacaoGroup.value.atuacao == 'adm'">
+                            <ng-template matStepLabel>Disponibilidade</ng-template>
+                            <form [formGroup]="disponibilidadeAdmGroup">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <mat-label>Qual é sua disponibilidade para trabalhar hoje?</mat-label>
+                                        <mat-form-field appearance="fill" class="example-full-width">
+                                            <mat-label>Disponibilidade</mat-label>
+                                            <mat-select formControlName="disponibilidade">
+                                                <mat-option value="Até 4 horas por dia">Até 4 horas por dia</mat-option>
+                                                <mat-option value="De 4 á 6 horas por dia">De 4 á 6 horas por dia</mat-option>
+                                                <mat-option value="De 6 á 8 horas por dia">De 6 á 8 horas por dia</mat-option>
+                                                <mat-option value="Acima de 8 horas por dia (tem certeza?)">Acima de 8 horas por dia (tem certeza?)</mat-option>
+                                                <mat-option value="Apenas finais de semana">Apenas finais de semana</mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix>event_available</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-6">
+                                        <mat-label>Qual é o melhor horário para trabalhar?</mat-label>
+                                        <mat-form-field appearance="fill" class="example-full-width">
+                                            <mat-label>Horario</mat-label>
+                                            <mat-select formControlName="horario" required>
+                                                <mat-option value="Manhã (de 08:00 ás 12:00)">Manhã (de 08:00 ás 12:00)</mat-option>
+                                                <mat-option value="Tarde (de 13:00 ás 18:00)">Tarde (de 13:00 ás 18:00)</mat-option>
+                                                <mat-option value="Noite (de 19:00 as 22:00)">Noite (de 19:00 as 22:00)</mat-option>
+                                                <mat-option value="Madrugada (de 22:00 em diante)">Madrugada (de 22:00 em diante)</mat-option>
+                                                <mat-option value="Comercial (de 08:00 as 18:00)"> Comercial (de 08:00 as 18:00)</mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix>schedule</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <mat-label>Quais idiomas você fala fluentemente?</mat-label>
+                                    <section class="example-section">
+                                        <mat-checkbox formControlName="portugues">Português</mat-checkbox>
+                                        <mat-checkbox formControlName="ingles">Ingles</mat-checkbox>
+                                        <mat-checkbox formControlName="espanhol">Espanhol</mat-checkbox>
+                                        <mat-checkbox formControlName="outros">Outros</mat-checkbox>
+                                    </section>
+                                    <mat-form-field appearance="fill">
+                                        <input matInput placeholder="Outro Idioma" id="outraLingua" [disabled]="!disponibilidadeAdmGroup.value.outros">
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <button (click)="teste()"></button>
+                                    <button mat-button matStepperPrevious>Voltar</button>
+                                    <button mat-button matStepperNext>Proximo</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel>Done</ng-template>
+                            <p>You are now done.</p>
+                            <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button (click)="stepper.reset()">Reset</button>
+                            </div>
+                        </mat-step>
+                    </mat-stepper>
+
+                </div>
+                <div *ngIf="languageControl.value == 'ENG'">
+                    <p>{{languageControl.value}}</p>
+                    <h1>Banco de Talentos - Easy Communication & Technology (Developers/Desenvolvedores)
+                    </h1>
+                    <mat-stepper linear="isLinear" #stepper>
+                        <mat-step [stepControl]="firstFormGroup">
+
+                            <form [formGroup]="firstFormGroup">
+                                <ng-template matStepLabel>Fill out your name</ng-template>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                                </mat-form-field>
+                                <div>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+
+                        <mat-step>
+                            <ng-template matStepLabel>Done</ng-template>
+                            <p>You are now done.</p>
+                            <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button (click)="stepper.reset()">Reset</button>
+                            </div>
+                        </mat-step>
+                    </mat-stepper>
+
+                </div>
+                <button class="button" mat-mini-fab color="basic" data-bs-toggle="modal" data-bs-target="#loginModal" style="margin-right:1vw" title="LOGIN">
+                    <mat-icon>login</mat-icon>
+                  </button>
+            </div>
+        </div>
+
+    </mat-card>
+
+</div>
+
+<!-- Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="LoginLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 20vw;">
+        <div class="modal-content">
+            <div class="modal-body" style=" text-align: center; align-items: center; max-width: 100%;">
+                <h1 class="modal-title" id="LoginLabel" style="font-family: fantasy;">Login</h1>
+                <form class="form">
+                    <mat-card-content>
+                        <div class="row">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Username" id="username">
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Password" id="password" type="password">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-content>
+                    <button mat-stroked-button color="primary" class="btn-block">Log in</button>
+                </form>
+                <!-- <mat-hint>*ACESSO RESTRITO</mat-hint> -->
+            </div>
+
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
